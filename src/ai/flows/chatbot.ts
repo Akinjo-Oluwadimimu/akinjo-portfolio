@@ -5,6 +5,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
+import { Message } from "@genkit-ai/ai";
 
 const CONTEXT_PROMPT = `You are a chatbot for a developer's portfolio website. Your name is DidiBot.
 Your goal is to answer questions about the developer, Oluwadimimu Akinjo, based ONLY on the information provided below.
@@ -88,9 +89,12 @@ export async function chatbot(input: ChatbotInput): Promise<ChatbotOutput> {
     },
     async ({ history, message }) => {
       const { text } = await ai.generate({
-        input: [
+        messages: [
           { role: "system", content: CONTEXT_PROMPT },
-          ...history.map((h) => ({ role: h.role, content: h.content })),
+          ...history.map<Message>((h) => ({
+            role: h.role,
+            content: h.content,
+          })),
           { role: "user", content: message },
         ],
       });
