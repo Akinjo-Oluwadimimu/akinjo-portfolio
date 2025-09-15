@@ -16,6 +16,7 @@ import { Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { slugify } from '@/lib/utils';
 import { revalidatePage } from '@/lib/actions';
+import { Suspense } from "react";
 
 const postSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -99,35 +100,37 @@ export default function EditPostPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
-      <Card className="max-w-4xl mx-auto">
-        <CardHeader>
-          <CardTitle className="font-headline text-3xl font-bold">{postId ? 'Edit Post' : 'Add New Post'}</CardTitle>
-          <CardDescription>Fill out the form below to {postId ? 'update the' : 'add a new'} blog post.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField name="title" control={form.control} render={({ field }) => (
-                <FormItem><FormLabel>Title</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
-              )} />
-              <FormField name="excerpt" control={form.control} render={({ field }) => (
-                <FormItem><FormLabel>Excerpt</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage /></FormItem>
-              )} />
-              <FormField name="content" control={form.control} render={({ field }) => (
-                <FormItem><FormLabel>Content (Markdown)</FormLabel><FormControl><Textarea {...field} rows={12} /></FormControl><FormMessage /></FormItem>
-              )} />
-              <FormField name="image" control={form.control} render={({ field }) => (
-                <FormItem><FormLabel>Image URL</FormLabel><FormControl><Input {...field} placeholder="https://picsum.photos/..."/></FormControl><FormMessage /></FormItem>
-              )} />
-              <Button type="submit" disabled={isLoading}>
-                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {postId ? 'Update Post' : 'Create Post'}
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <Card className="max-w-4xl mx-auto">
+          <CardHeader>
+            <CardTitle className="font-headline text-3xl font-bold">{postId ? 'Edit Post' : 'Add New Post'}</CardTitle>
+            <CardDescription>Fill out the form below to {postId ? 'update the' : 'add a new'} blog post.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField name="title" control={form.control} render={({ field }) => (
+                  <FormItem><FormLabel>Title</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
+                )} />
+                <FormField name="excerpt" control={form.control} render={({ field }) => (
+                  <FormItem><FormLabel>Excerpt</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage /></FormItem>
+                )} />
+                <FormField name="content" control={form.control} render={({ field }) => (
+                  <FormItem><FormLabel>Content (Markdown)</FormLabel><FormControl><Textarea {...field} rows={12} /></FormControl><FormMessage /></FormItem>
+                )} />
+                <FormField name="image" control={form.control} render={({ field }) => (
+                  <FormItem><FormLabel>Image URL</FormLabel><FormControl><Input {...field} placeholder="https://picsum.photos/..."/></FormControl><FormMessage /></FormItem>
+                )} />
+                <Button type="submit" disabled={isLoading}>
+                  {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {postId ? 'Update Post' : 'Create Post'}
+                </Button>
+              </form>
+            </Form>
+          </CardContent>
+        </Card>
+      </div>
+    </Suspense>
   );
 }
