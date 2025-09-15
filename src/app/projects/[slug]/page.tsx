@@ -8,8 +8,9 @@ import Link from 'next/link';
 
 export const revalidate = 0; // Revalidate the page on every request
 
-export default async function ProjectDetailsPage({ params }: { params: { slug: string } }) {
-  const project = await getProject(params.slug);
+export default async function ProjectDetailsPage({params,}: {  params: Promise<{ slug: string }>}) {
+  const { slug } = await params
+  const project = await getProject(slug);
 
   if (!project) {
     notFound();
