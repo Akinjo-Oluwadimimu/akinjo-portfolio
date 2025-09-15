@@ -6,8 +6,8 @@ import React from 'react';
 
 export const revalidate = 0; // Revalidate the page on every request
 
-export default async function BlogPostPage({params,}: {  params: Promise<{ slug: string }>}) {
-  const { slug } = await params
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { slug } =  params
   const post = await getPost(slug);
 
   if (!post) {
