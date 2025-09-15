@@ -1,13 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
-import { ArrowRight, Bot, Code, Mail, PenSquare, Quote, Star } from 'lucide-react';
+import { ArrowRight, Bot, Code, PenSquare, Quote } from 'lucide-react';
 import Image from 'next/image';
 import { getProjects } from '@/lib/projects';
 import { getPosts } from '@/lib/blog';
 import { format } from 'date-fns';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card } from '@/components/ui/card';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import LatestProjects from "./HomeClient";
 
 const services = [
@@ -57,7 +56,6 @@ export default async function Home() {
   const allProjects = await getProjects();
   const allPosts = await getPosts();
   
-  const latestProjects = allProjects.slice(0, 3);
   const latestPosts = allPosts.slice(0, 2);
 
   return (
@@ -120,14 +118,14 @@ export default async function Home() {
               <p
                 className="text-4xl md:text-5xl lg:text-6xl font-light leading-snug"
               >
-                “I believe great software starts with listening — to users, to context, to what isn’t yet obvious.”
+                &quot;I believe great software starts with listening — to users, to context, to what isn&apos;t yet obvious.&quot;
               </p>
 
               {/* Description */}
               <p
                 className="text-gray-500 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-base sm:text-lg md:text-xl"
               >
-                Development isn’t just building software — it’s creating clarity, flow, and solutions that matter.
+                Development isn&apos;t just building software — it&apos;s creating clarity, flow, and solutions that matter.
               </p>
 
               <div>
@@ -159,7 +157,7 @@ export default async function Home() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">What I Do</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  From crafting elegant user interfaces to building robust backend systems and integrating intelligent features, here's how I can help you.
+                  From crafting elegant user interfaces to building robust backend systems and integrating intelligent features, here&apos;s how I can help you.
                 </p>
               </div>
             </div>
@@ -196,7 +194,7 @@ export default async function Home() {
                 <Card key={index} className="bg-color-dark-200 rounded-none p-6 text-left flex flex-col justify-between">
                   <div>
                     <Quote className="w-8 h-8 text-primary mb-4" />
-                    <p className="text-lg">"{testimonial.quote}"</p>
+                    <p className="text-lg">&quot;{testimonial.quote}&quot;</p>
                   </div>
                   <div className="mt-6 flex items-center gap-4">
                      <Avatar className="h-12 w-12">

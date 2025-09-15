@@ -9,7 +9,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Oluwadimimu Akinjo',
-  description: 'A playful yet professional developer portfolio.',
+  description: 'My portfolio website.',
 };
 
 export default function RootLayout({

@@ -4,9 +4,8 @@ import { generateBlogPost } from '@/ai/flows/blog-generator';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
-import { Loader2, Sparkles, Wand2 } from 'lucide-react';
+import { Loader2, Wand2 } from 'lucide-react';
 import { format } from 'date-fns';
 
 export default function BlogGeneratorPage() {

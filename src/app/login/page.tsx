@@ -10,6 +10,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { FirebaseError } from "firebase/app";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -21,19 +23,23 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push('/admin');
-    } catch (error: any) {
+      router.push("/admin");
+    } catch (error) {
+      const err = error as FirebaseError;
+
       toast({
-        title: 'Login Failed',
-        description: error.message,
-        variant: 'destructive',
+        title: "Login Failed",
+        description: err.message || "An unexpected error occurred.",
+        variant: "destructive",
       });
     } finally {
       setIsLoading(false);
     }
   };
+
 
   return (
     <div className="container mx-auto flex items-center justify-center min-h-[calc(100vh-150px)] px-4 py-12">

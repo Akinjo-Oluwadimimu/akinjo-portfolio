@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getContacts, type Contact } from '@/lib/firebase';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Loader2, Mail, Sparkles, User, MessageSquare } from 'lucide-react';
+import { Loader2, Sparkles, User } from 'lucide-react';
 import { useRequireAuth } from '@/hooks/use-auth';
 import { formatDistanceToNow } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';

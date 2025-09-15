@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp, orderBy, query } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs, serverTimestamp, orderBy, query, Timestamp } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -22,7 +22,7 @@ export type Contact = {
     name: string;
     email: string;
     message: string;
-    createdAt: any;
+    createdAt: Timestamp;
 }
 
 const contactsCollection = collection(db, 'contacts');

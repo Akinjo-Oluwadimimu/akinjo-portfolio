@@ -4,7 +4,7 @@ import { chatbot } from '@/ai/flows/chatbot';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 import { Bot, Loader2, Send, User } from 'lucide-react';
 import React, { useState, useRef, useEffect } from 'react';

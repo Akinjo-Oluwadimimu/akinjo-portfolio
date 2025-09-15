@@ -1,7 +1,7 @@
 'use client';
 import { useRequireAuth } from '@/hooks/use-auth';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Bot, FilePlus2, Mail, Pencil, Trash2, PenSquare, BookOpen, Briefcase, MessagesSquare } from 'lucide-react';
+import { Mail, PenSquare, BookOpen, Briefcase, MessagesSquare } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminPage() {

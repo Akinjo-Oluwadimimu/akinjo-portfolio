@@ -1,6 +1,6 @@
 'use client';
 
-import { processContactForm, type ContactFormInput } from '@/ai/flows/contact-form';
+import { processContactForm } from '@/ai/flows/contact-form';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -78,7 +78,7 @@ export default function ContactResponderPage() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Sender's Name</FormLabel>
+                        <FormLabel>Sender&apos;s Name</FormLabel>
                         <FormControl>
                           <Input placeholder="Their Name" {...field} />
                         </FormControl>
@@ -91,7 +91,7 @@ export default function ContactResponderPage() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Sender's Email</FormLabel>
+                        <FormLabel>Sender&apos;s Email</FormLabel>
                         <FormControl>
                           <Input placeholder="their.email@example.com" {...field} />
                         </FormControl>
@@ -104,7 +104,7 @@ export default function ContactResponderPage() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Sender's Message</FormLabel>
+                        <FormLabel>Sender&apos;s Message</FormLabel>
                         <FormControl>
                           <Textarea placeholder="The message they sent..." {...field} rows={5}/>
                         </FormControl>

@@ -7,9 +7,8 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Loader2, Github, Linkedin, Mail, Instagram, Twitter } from 'lucide-react';
+import { Loader2, Linkedin, Mail, Instagram, Twitter } from 'lucide-react';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -69,7 +68,7 @@ export default function ContactPage() {
               </span>
             </div>
             <h2 className="text-3xl md:text-5xl font-bold font-headline">
-              Let’s make Something Thoughtful
+              Let&apos;s make Something Thoughtful
             </h2>
         </div>
       </section>
@@ -79,10 +78,10 @@ export default function ContactPage() {
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Side */}
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">Let’s talk</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Let&apos;s talk</h2>
             <p className="text-lg text-muted-foreground">
-              Whether you’re planning a new brand or refining an existing one — I’d love to hear what
-              you’re working on.
+              Whether you&apos;re planning a new brand or refining an existing one — I&apos;d love to hear what
+              you&apos;re working on.
             </p>
 
             {/* Socials */}
@@ -141,7 +140,7 @@ export default function ContactPage() {
             <AlertDialogHeader>
                 <AlertDialogTitle>Message Sent!</AlertDialogTitle>
                 <AlertDialogDescription>
-                Thank you for reaching out. I'll get back to you as soon as possible.
+                Thank you for reaching out. I&apos;ll get back to you as soon as possible.
                 </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogAction onClick={() => setIsSuccess(false)}>Close</AlertDialogAction>

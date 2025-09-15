@@ -3,15 +3,12 @@ import { Badge } from '@/components/ui/badge';
 import { getProjects } from '@/lib/projects';
 import { getPosts } from '@/lib/blog';
 import Link from 'next/link';
-import { ExternalLink } from "lucide-react"; // icon for top-right corner
 
 
 export default async function LatestProjects() {
   const allProjects = await getProjects();
-  const allPosts = await getPosts();
   
   const latestProjects = allProjects.slice(0, 3);
-  const latestPosts = allPosts.slice(0, 2);
 
 
   return (

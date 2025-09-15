@@ -1,7 +1,4 @@
 import { getProjects } from '@/lib/projects';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 export const revalidate = 0; // Revalidate the page on every request

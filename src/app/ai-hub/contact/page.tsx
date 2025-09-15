@@ -1,6 +1,6 @@
 'use client';
 
-import { processContactForm, type ContactFormInput } from '@/ai/flows/contact-form';
+import { processContactForm } from '@/ai/flows/contact-form';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';

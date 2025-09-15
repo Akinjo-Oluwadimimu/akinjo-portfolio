@@ -1,16 +1,10 @@
 import { getPosts } from '@/lib/blog';
-import Link from 'next/link';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { format } from 'date-fns';
-import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
 
 export const revalidate = 0; // Revalidate the page on every request
 
 export default async function BlogPage() {
   const posts = await getPosts();
-  const featuredPost = posts[0];
-  const otherPosts = posts.slice(1);
 
   return (
     <div className="mx-auto px-4">

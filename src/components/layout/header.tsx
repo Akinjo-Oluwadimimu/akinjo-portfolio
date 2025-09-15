@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Menu, Code, Bot, User, LogIn, LogOut } from 'lucide-react';
+import { Menu, Code, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { usePathname, useRouter } from 'next/navigation';

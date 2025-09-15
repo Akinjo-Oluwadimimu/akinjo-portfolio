@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Github, Linkedin, Mail, Instagram, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
@@ -66,21 +66,21 @@ export default function AboutPage() {
 
     <div className="order-2 md:order-1 md:col-span-2 max-w-3xl lg:pr-8">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-        I'm <span className="text-primary">Oluwadimimu Akinjo</span>, but most people just call me Didi.
+        I&apos;m <span className="text-primary">Oluwadimimu Akinjo</span>, but most people just call me Didi.
       </h1>
 
       <div className="mt-8 space-y-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
         <p>
-          I've always been fascinated by how ideas can turn into something tangible, from sketching little concepts as a kid to now building software that people actually use.
+          I&apos;ve always been fascinated by how ideas can turn into something tangible, from sketching little concepts as a kid to now building software that people actually use.
         </p>
         <p>
           My journey in tech has taken me through classrooms in Nigeria and lecture halls in China, where I studied Computer Science and discovered how much I enjoy shaping technology that solves real problems.
         </p>
         <p>
-          What excites me most isn't just writing code; it's seeing someone interact with what I've built and realizing it makes their day a little easier. That moment is what keeps me learning, experimenting, and refining.
+          What excites me most isn&apos;t just writing code; it&apos;s seeing someone interact with what I&apos;ve built and realizing it makes their day a little easier. That moment is what keeps me learning, experimenting, and refining.
         </p>
         <p>
-          Outside of coding, I'm curious about cultures, languages, and creativity in all forms. I enjoy music that makes you move, conversations that spark new ideas, and exploring spaces where art and technology meet.
+          Outside of coding, I&apos;m curious about cultures, languages, and creativity in all forms. I enjoy music that makes you move, conversations that spark new ideas, and exploring spaces where art and technology meet.
         </p>
         <p>
           For me, development is both craft and storytelling, and I try to leave a bit of that personal spark in every project I work on.
