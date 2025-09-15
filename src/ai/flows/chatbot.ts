@@ -88,16 +88,12 @@ export async function chatbot(input: ChatbotInput): Promise<ChatbotOutput> {
       outputSchema: ChatbotOutputSchema,
     },
     async ({ history, message }) => {
-      const { text } = await ai.generate({
-        messages: [
-          { role: "system", content: CONTEXT_PROMPT },
-          ...history.map<Message>((h) => ({
-            role: h.role,
-            content: h.content,
-          })),
-          { role: "user", content: message },
-        ],
-      });
+      const { text } = await ai.generate([
+        { text: CONTEXT_PROMPT },
+        ...history.map((h) => ({ text: `${h.role}: ${h.content}` })),
+        { text: `user: ${message}` },
+      ]);
+
 
 
   
