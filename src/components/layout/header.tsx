@@ -56,7 +56,7 @@ export function Header() {
         </div>
 
         <div className="flex flex-1 items-center justify-end gap-2">
-           <Button asChild variant="outline" size="sm">
+          <Button asChild variant="outline" className="hidden lg:flex" size="sm">
             <Link href="/ai-hub/chatbot">
               <Bot className="mr-2 h-4 w-4" />
               DidiBot
@@ -93,14 +93,14 @@ export function Header() {
                     </Link>
                   ))}
                    <Link
-                      href="/ai-hub"
+                      href="/ai-hub/chatbot"
                       onClick={() => setOpen(false)}
                       className={cn(
                         'text-lg font-medium transition-colors hover:text-primary',
                         pathname.startsWith('/ai-hub') ? 'text-primary' : 'text-muted-foreground'
                       )}
                     >
-                      AI Hub
+                      DidiBot
                     </Link>
                 </div>
               </SheetContent>

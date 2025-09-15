@@ -12,7 +12,7 @@ export default async function ProjectsPage() {
         <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
           My Projects
         </h1>
-        <p className="mx-auto mt-6 max-w-[700px] text-lg text-muted-foreground md:text-xl">
+        <p className="mx-auto mt-6 max-w-[700px] text-lg md:text-xl">
           A selection of projects shaped by clarity, collaboration, and purpose. Dive in to see the details.
         </p>
       </section>
