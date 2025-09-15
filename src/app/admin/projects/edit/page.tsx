@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -17,6 +17,8 @@ import { useToast } from '@/hooks/use-toast';
 import { slugify } from '@/lib/utils';
 import { revalidatePage } from '@/lib/actions';
 
+export const dynamic = 'force-dynamic';
+
 const projectSchema = z.object({
   title: z.string().min(1, "Title is required"),
   description: z.string().min(1, "Short description is required"),
@@ -30,7 +32,7 @@ const projectSchema = z.object({
 
 type ProjectFormData = z.infer<typeof projectSchema>;
 
-export default function EditProjectPage() {
+function EditProjectForm() {
   useRequireAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -109,11 +111,10 @@ export default function EditProjectPage() {
   };
 
   if (isFetching) {
-    return <div className="container mx-auto px-4 py-16 md:py-24 flex justify-center"><Loader2 className="h-8 w-8 animate-spin" /></div>;
+    return <div className="flex justify-center"><Loader2 className="h-8 w-8 animate-spin" /></div>;
   }
 
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
       <Card className="max-w-4xl mx-auto">
         <CardHeader>
           <CardTitle className="font-headline text-3xl font-bold">{projectId ? 'Edit Project' : 'Add New Project'}</CardTitle>
@@ -154,6 +155,15 @@ export default function EditProjectPage() {
           </Form>
         </CardContent>
       </Card>
+  );
+}
+
+export default function EditProjectPage() {
+  return (
+    <div className="container mx-auto px-4 py-16 md:py-24">
+      <Suspense fallback={<div className="flex justify-center"><Loader2 className="h-8 w-8 animate-spin" /></div>}>
+        <EditProjectForm />
+      </Suspense>
     </div>
   );
 }
