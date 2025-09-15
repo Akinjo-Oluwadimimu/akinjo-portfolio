@@ -1,7 +1,6 @@
 import { clsx } from 'clsx'
 import { Badge } from '@/components/ui/badge';
-import { getProjects } from '@/lib/projects';
-import { getPosts } from '@/lib/blog';
+import { getProjects, Project } from '@/lib/projects';
 import Link from 'next/link';
 
 
@@ -9,7 +8,6 @@ export default async function LatestProjects() {
   const allProjects = await getProjects();
   
   const latestProjects = allProjects.slice(0, 3);
-
 
   return (
     <section className="relative">
@@ -101,10 +99,14 @@ export default async function LatestProjects() {
   );
 }
 
+type ProjectCardProps = {
+  project: Project;
+  index: number;
+  total: number;
+};
 
 
-
-function ProjectCard({ project, index, total }) {
+function ProjectCard({ project, index, total }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
