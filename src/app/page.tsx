@@ -39,14 +39,14 @@ const testimonials = [
     excerpt: 'Exactly what we needed',
     quote: 'The level of professionalism and the quality of the end result were outstanding. She is not just a developer, but a true partner in building a successful product.',
     name: 'Denis',
-    title: 'Product Manager',
+    title: 'Grad Student',
     avatar: '',
   },
     {
       excerpt: 'Design that works beautifully',
       quote: "I'm incredibly impressed with the AI-powered features she implemented. It has added a whole new level of engagement to our platform. A truly forward-thinking developer.",
       name: 'Thuch Angui',
-      title: 'Founder, AI StartHub',
+      title: 'NAMA',
       avatar: '',
   },
 ];
@@ -151,38 +151,36 @@ export default async function Home() {
         </section>
 
         {/* Services Section */}
-<section className="relative w-full py-24 md:py-32 bg-[url('/images/services-bg.jpg')] bg-cover bg-center">
-  {/* Optional Overlay */}
-  <div className="absolute inset-0 bg-black/70"></div>
+      <section className="relative w-full py-24 md:py-32">
 
-  <div className="relative container mx-auto px-4 md:px-6 z-10">
-    {/* Section Heading */}
-    <div className="flex flex-col items-center justify-center space-y-4 text-center">
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline text-white">
-          What I Do
-        </h2>
-        <p className="max-w-[900px] text-gray-200 md:text-xl leading-relaxed">
-          From crafting elegant user interfaces to building robust backend systems and integrating intelligent features, here&apos;s how I can help you.
-        </p>
-      </div>
-    </div>
+        <div className="relative container mx-auto px-4 md:px-6 z-10">
+          {/* Section Heading */}
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                What I Do
+              </h2>
+              <p className="max-w-[900px] md:text-xl leading-relaxed">
+                From crafting elegant user interfaces to building robust backend systems and integrating intelligent features, here&apos;s how I can help you.
+              </p>
+            </div>
+          </div>
 
-    {/* Services Grid */}
-    <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 mt-12">
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className="group flex flex-col items-center gap-4 p-6 rounded-2xl bg-white/10 hover:bg-primary/10 transition-all shadow-md"
-        >
-          <div className="text-primary text-4xl">{service.icon}</div>
-          <h3 className="text-xl font-bold text-white text-center">{service.title}</h3>
-          <p className="text-gray-200 text-center">{service.description}</p>
+          {/* Services Grid */}
+          <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 mt-12">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group flex flex-col items-center gap-4 p-6 rounded-2xl bg-white/10 transition-all shadow-md"
+              >
+                <div className="text-primary text-4xl">{service.icon}</div>
+                <h3 className="text-xl font-bold text-center">{service.title}</h3>
+                <p className="text-center">{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
 
         <LatestProjects />

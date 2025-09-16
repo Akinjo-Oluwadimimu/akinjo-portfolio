@@ -18,7 +18,7 @@ export default function AboutPage() {
       <div className="hidden lg:flex mt-8 w-full justify-center lg:justify-start">
         <div className="flex flex-col gap-5 w-full">
           <Link
-            href="https://github.com"
+            href="https://github.com/Akinjo-Oluwadimimu"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground transition-all hover:text-primary text-sm"
@@ -27,7 +27,7 @@ export default function AboutPage() {
             <span className="font-medium">Follow on GitHub</span>
           </Link>
           <Link
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/oluwadimimuakinjo"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground hover:text-primary transition-all text-sm"
@@ -36,7 +36,7 @@ export default function AboutPage() {
             <span className="font-medium">Follow on LinkedIn</span>
           </Link>
           <Link
-            href="https://twitter.com"
+            href="https://instagram.com/motolani_ak"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground hover:text-primary transition-all text-sm"
@@ -45,7 +45,7 @@ export default function AboutPage() {
             <span className="font-medium">Follow on Instagram</span>
           </Link>
           <Link
-            href="https://twitter.com"
+            href="https://x.com/dimimuakinjo"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground hover:text-primary transition-all text-sm"
@@ -89,10 +89,10 @@ export default function AboutPage() {
     </div>
 
     {/* MOBILE socials: visible only on small screens and placed after the text */}
-    <div className="order-3 lg:hidden w-full mt-6">
+    <div className="order-3 lg:hidden w-full mt-6 pb-12">
       <div className="flex flex-col gap-5 w-full">
           <Link
-            href="https://github.com"
+            href="https://github.com/Akinjo-Oluwadimimu"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground transition-all hover:text-primary text-sm"
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <span className="font-medium">Follow on GitHub</span>
           </Link>
           <Link
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/oluwadimimuakinjo"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground hover:text-primary transition-all text-sm"
@@ -110,7 +110,7 @@ export default function AboutPage() {
             <span className="font-medium">Follow on LinkedIn</span>
           </Link>
           <Link
-            href="https://twitter.com"
+            href="https://instagram.com/motolani_ak"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground hover:text-primary transition-all text-sm"
@@ -119,7 +119,7 @@ export default function AboutPage() {
             <span className="font-medium">Follow on Instagram</span>
           </Link>
           <Link
-            href="https://twitter.com"
+            href="https://x.com/dimimuakinjo"
             target="_blank"
             rel="noreferrer"
             className="social-link flex items-center gap-3 text-muted-foreground hover:text-primary transition-all text-sm"
