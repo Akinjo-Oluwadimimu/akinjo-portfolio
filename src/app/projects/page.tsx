@@ -1,5 +1,8 @@
 import { getProjects } from '@/lib/projects';
+import Image from 'next/image';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 export const revalidate = 0; // Revalidate the page on every request
 
@@ -67,6 +70,35 @@ export default async function ProjectsPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <Link href={`/projects/${project.slug}`} key={project.slug} className="group">
+            <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+              <div className="overflow-hidden aspect-video relative">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  data-ai-hint={project.imageHint}
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
       </section>
     </div>
   );

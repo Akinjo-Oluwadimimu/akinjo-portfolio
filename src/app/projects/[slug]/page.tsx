@@ -8,9 +8,8 @@ import Link from 'next/link';
 
 export const revalidate = 0; // Revalidate the page on every request
 
-export default async function ProjectDetailsPage({params,}: {  params: Promise<{ slug: string }>}) {
-  const { slug } = await params
-  const project = await getProject(slug);
+export default async function ProjectDetailsPage({ params }: { params: { slug: string } }) {
+  const project = await getProject(params.slug);
 
   if (!project) {
     notFound();
@@ -23,13 +22,12 @@ export default async function ProjectDetailsPage({params,}: {  params: Promise<{
           {project.title}
         </h1>
         
-        <div className="mt-8">
+        <div className="mt-8 relative aspect-video w-full rounded-lg shadow-lg border overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
-            width={1200}
-            height={800}
-            className="w-full rounded-lg shadow-lg border"
+            fill
+            className="object-cover"
             data-ai-hint={project.imageHint}
             priority
           />
