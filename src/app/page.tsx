@@ -221,7 +221,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="relative w-full py-24 lg:py-40 lg:px-12 bg-[url('https://ztnyuecbojebmzlwthft.supabase.co/storage/v1/object/public/quickshare-uploads/user-uploads/1757692697522-d1a92f173d4bffffefe6aee50a3fd003.jpg')] bg-cover bg-center overflow-hidden">
+        <section className="relative w-full py-24 lg:py-40 lg:px-12 bg-[url('/cta-bg.jpg')] bg-cover bg-center overflow-hidden">
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/5" />
 

@@ -1,6 +1,7 @@
 import { clsx } from 'clsx'
 import { Badge } from '@/components/ui/badge';
 import { getProjects, Project } from '@/lib/projects';
+import Image from "next/image";
 import Link from 'next/link';
 
 
@@ -111,7 +112,7 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       className={clsx(
-        "group h-screen flex flex-col justify-end relative px-6 xl:px-12 overflow-hidden", // group needed for hover effects
+        "group h-screen flex flex-col justify-end relative px-6 xl:px-12 overflow-hidden",
         {
           "mb-1": index !== total - 1,
         }
@@ -119,13 +120,18 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
     >
       {/* Background/Image with zoom effect */}
       <div className="absolute inset-0">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" // zoom on hover
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="relative w-full h-full">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority={index === 0} // preload first card
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        </div>
       </div>
 
       {/* Top-right icon */}
@@ -142,12 +148,11 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
         </div>
       </div>
 
-
       {/* Project Details at Bottom */}
       <div className="relative z-10 text-white pb-16">
         <h2 className="text-4xl font-medium tracking-wide">{project.title}</h2>
         <div className="mt-2 flex flex-wrap gap-4">
-          {project.technologies.map((tag) => (
+          {project.technologies.map((tag: string) => (
             <Badge key={tag} className="tracking-widest" variant="secondary">
               {tag}
             </Badge>
