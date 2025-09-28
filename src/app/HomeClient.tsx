@@ -9,24 +9,10 @@ import Link from 'next/link';
 export default async function LatestProjects() {
   const allProjects = await getProjects();
 
-  const projectsWithBlur = await Promise.all(
-    allProjects.map(async (project) => {
-      const response = await fetch(project.image);
-      const arrayBuffer = await response.arrayBuffer();
-      const buffer = Buffer.from(arrayBuffer);
 
-      // Pass the buffer to plaiceholder
-      const { base64 } = await getPlaiceholder(buffer);
-
-
-      return {
-        ...project,
-        blurDataURL: base64,
-      };
-    })
-  );
   
-  const latestProjects = projectsWithBlur.slice(0, 3);
+  
+  const latestProjects = allProjects.slice(0, 3);
 
   return (
     <section className="relative">
@@ -145,7 +131,7 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            placeholder="blur"
+            placeholder={project.blurDataURL ? "blur" : "empty"}
             blurDataURL={project.blurDataURL}
             priority={index === 0}
           />

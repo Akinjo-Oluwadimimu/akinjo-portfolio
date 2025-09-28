@@ -31,6 +31,8 @@ export default async function ProjectsPage() {
                   fill
                   className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                   data-ai-hint={project.imageHint}
+                  placeholder={project.blurDataURL ? "blur" : "empty"}
+                  blurDataURL={project.blurDataURL}
                 />
               </div>
               <CardHeader>
@@ -60,6 +62,8 @@ export default async function ProjectsPage() {
                   fill
                   className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                   data-ai-hint={project.imageHint}
+                  placeholder={project.blurDataURL ? "blur" : "empty"}
+                  blurDataURL={project.blurDataURL}
                 />
 
                 {/* Overlay */}
@@ -110,6 +114,8 @@ export default async function ProjectsPage() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    placeholder={project.blurDataURL ? "blur" : "empty"}
+                    blurDataURL={project.blurDataURL}
                     className="object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105"
                   />
 
