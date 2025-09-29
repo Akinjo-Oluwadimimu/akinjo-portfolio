@@ -20,21 +20,22 @@ export default async function ProjectsPage() {
         </p>
       </section>
 
-      <section className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <Link href={`/projects/${project.slug}`} key={project.slug} className="group">
-            <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-              <div className="overflow-hidden w-full h-72 aspect-video relative">
+            <Card className="h-full max-w-full overflow-hidden transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+              
+              <div className="relative w-full aspect-[3/2] overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  data-ai-hint={project.imageHint}
                   placeholder={project.blurDataURL ? "blur" : "empty"}
                   blurDataURL={project.blurDataURL}
                 />
               </div>
+
               <CardHeader>
                 <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
@@ -51,25 +52,23 @@ export default async function ProjectsPage() {
         ))}
       </section>
 
-      <section className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <Link href={`/projects/${project.slug}`} key={project.slug} className="group">
-            <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-              <div className="overflow-hidden w-full h-72 aspect-video relative">
+            <Card className="h-full max-w-full overflow-hidden transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+              
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  data-ai-hint={project.imageHint}
                   placeholder={project.blurDataURL ? "blur" : "empty"}
                   blurDataURL={project.blurDataURL}
                 />
 
-                {/* Overlay */}
+                {/* Overlay + Arrow */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Hover Arrow */}
                 <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
                     <svg
@@ -83,6 +82,7 @@ export default async function ProjectsPage() {
                   </div>
                 </div>
               </div>
+
               <CardHeader>
                 <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
@@ -98,68 +98,6 @@ export default async function ProjectsPage() {
           </Link>
         ))}
       </section>
-
-      <section className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <Link
-            href={`/projects/${project.slug}`}
-            key={project.slug}
-            className="group"
-          >
-            <Card className="h-full max-w-md mx-auto rounded-3xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-              <div className="px-4 pt-4">
-                {/* Image wrapper with overflow-hidden */}
-                <div className="relative w-full h-72 overflow-hidden rounded-3xl">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    placeholder={project.blurDataURL ? "blur" : "empty"}
-                    blurDataURL={project.blurDataURL}
-                    className="object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                  {/* Hover Arrow */}
-                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-10 h-10 bg-primary flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-white transform -rotate-45 transition-transform duration-300"
-                        fill="currentColor"
-                        viewBox="0 0 256 256"
-                      >
-                        <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <CardHeader>
-                <CardTitle className="text-lg font-bold">{project.title}</CardTitle>
-                <CardDescription className="mt-2 text-sm leading-relaxed">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <Badge key={tech} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
-      </section>
-
-
     </div>
   );
 }

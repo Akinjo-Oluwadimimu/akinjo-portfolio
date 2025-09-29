@@ -92,7 +92,7 @@ export default function AdminContactsPage() {
                              <CardTitle className="text-xl flex items-center gap-2"><User className="w-5 h-5 text-primary"/> {contact.name}</CardTitle>
                              <a href={`mailto:${contact.email}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{contact.email}</a>
                         </div>
-                        <p className="text-xs text-muted-foreground">{formatDistanceToNow(contact.createdAt.toDate())} ago ago</p>
+                        <p className="text-xs text-muted-foreground">{formatDistanceToNow(contact.createdAt)} ago ago</p>
                     </div>
                 </CardHeader>
                 <CardContent>
