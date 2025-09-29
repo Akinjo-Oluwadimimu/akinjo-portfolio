@@ -1,5 +1,6 @@
 import { getPosts } from '@/lib/blog';
 import { format } from 'date-fns';
+import Image from 'next/image';
 
 export const revalidate = 0; // Revalidate the page on every request
 
@@ -33,13 +34,15 @@ export default async function BlogPage() {
             >
               {/* Image */}
               <div className="relative md:col-span-4 overflow-hidden">
-                <img
-                  src="https://cdn.prod.website-files.com/6881d6b6d2b42e95fee28187/6881d6b6d2b42e95fee2825a_note-04-thumb.webp"
+                <Image
+                  src={post.image}
                   alt={post.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"></div>
               </div>
+
 
               {/* Info */}
               <div className="md:col-span-7 flex flex-col justify-between">

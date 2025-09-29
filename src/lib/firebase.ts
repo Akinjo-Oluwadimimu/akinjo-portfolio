@@ -22,7 +22,7 @@ export type Contact = {
     name: string;
     email: string;
     message: string;
-    createdAt: Timestamp;
+    createdAt: Date;
 }
 
 const contactsCollection = collection(db, 'contacts');

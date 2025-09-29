@@ -5,7 +5,6 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { Message } from "@genkit-ai/ai";
 
 const CONTEXT_PROMPT = `You are a chatbot for a developer's portfolio website. Your name is DidiBot.
 Your goal is to answer questions about the developer, Oluwadimimu Akinjo, based ONLY on the information provided below.

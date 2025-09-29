@@ -1,7 +1,6 @@
 import { clsx } from 'clsx'
 import { Badge } from '@/components/ui/badge';
 import { getProjects, Project } from '@/lib/projects';
-import { getPlaiceholder } from "plaiceholder";
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -159,7 +158,7 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
       <div className="relative z-10 text-white pb-16">
         <h2 className="text-4xl font-medium tracking-wide">{project.title}</h2>
         <div className="mt-2 flex flex-wrap gap-4">
-          {project.technologies.map((tag: string) => (
+          {project.technologies.slice(0, 4).map((tag: string) => (
             <Badge key={tag} className="tracking-widest" variant="secondary">
               {tag}
             </Badge>

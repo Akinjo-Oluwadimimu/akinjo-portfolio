@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, Bot, Code, PenSquare, Quote } from 'lucide-react';
 import Image from 'next/image';
-import { getProjects } from '@/lib/projects';
 import { getPosts } from '@/lib/blog';
 import { format } from 'date-fns';
 import { Card } from '@/components/ui/card';
@@ -52,11 +51,8 @@ const testimonials = [
 ];
 
 export default async function Home() {
-
-  const allProjects = await getProjects();
   const allPosts = await getPosts();
-  
-  const latestPosts = allPosts.slice(0, 2);
+  const latestPosts = allPosts.slice(0, 3);
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
@@ -319,13 +315,17 @@ export default async function Home() {
                 className="group block overflow-hidden transition mb-10 lg:mb-0"
               >
                 {/* Image */}
-                <div className="relative overflow-hidden">
-                  <img
-                    src="https://cdn.prod.website-files.com/6881d6b6d2b42e95fee28187/6881d6b6d2b42e95fee2825a_note-04-thumb.webp"
+                <div className="relative overflow-hidden group">
+                  <Image
+                    src={post.image}
                     alt={post.title}
-                    className="w-full lg:h-56 h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="object-cover lg:h-56 h-96 transition-transform duration-500 group-hover:scale-105"
                   />
+                  
+                  {/* Overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"></div>
+
                   {/* Hover Arrow */}
                   <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="w-10 h-10 bg-primary flex items-center justify-center">
@@ -340,6 +340,7 @@ export default async function Home() {
                     </div>
                   </div>
                 </div>
+
 
                 {/* Meta */}
                 <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
