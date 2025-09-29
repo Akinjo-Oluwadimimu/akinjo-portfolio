@@ -7,10 +7,6 @@ import Link from 'next/link';
 
 export default async function LatestProjects() {
   const allProjects = await getProjects();
-
-
-  
-  
   const latestProjects = allProjects.slice(0, 3);
 
   return (

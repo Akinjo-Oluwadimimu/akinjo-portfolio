@@ -33,7 +33,7 @@ export default async function BlogPage() {
               className="group grid lg:grid-cols-12 gap-16 items-start border-b pb-8 last:border-b-0"
             >
               {/* Image */}
-              <div className="relative md:col-span-4 overflow-hidden">
+              <div className="relative w-full h-64 md:col-span-4 overflow-hidden">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -50,16 +50,16 @@ export default async function BlogPage() {
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span>{format(new Date(post.date), 'MMMM d, yyyy')}</span>
                   </div>
-                  <h2 className="mt-2 text-xl lg:text-4xl tracking-wide font-semibold transition">
+                  <h2 className="mt-2 text-xl lg:text-4xl tracking-normal font-semibold transition">
                     {post.title}
                   </h2>
-                  <p className="mt-6 text-sm text-muted-foreground">
+                  <p className="mt-4 text-sm text-muted-foreground">
                     {post.excerpt}
                   </p>
                 </div>
 
                 {/* Footer link */}
-                <div className="mt-8 opacity-0 group-hover:opacity-100 transition">
+                <div className="mt-6 opacity-0 group-hover:opacity-100 transition">
                   <span className="inline-flex items-center gap-2 font-medium">
                     Read More
                     <svg

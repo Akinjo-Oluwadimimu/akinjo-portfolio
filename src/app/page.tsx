@@ -270,9 +270,9 @@ export default async function Home() {
 
 
         <section className="articles py-24 md:py-32 lg:px-12 px-4">
-          <div className="container mx-auto px-4 md:px-6">
+          <div className="">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-16">
               {/* Tagline + Heading */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
@@ -314,8 +314,9 @@ export default async function Home() {
                 href={`/blog/${post.slug}`} key={post.slug}
                 className="group block overflow-hidden transition mb-10 lg:mb-0"
               >
+                
                 {/* Image */}
-                <div className="relative overflow-hidden group">
+                <div className="relative overflow-hidden w-full h-64 group">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -348,7 +349,7 @@ export default async function Home() {
                 </div>
 
                 {/* Title */}
-                <h3 className="mt-2 text-xl font-semibold transition">
+                <h3 className="mt-2 text-xl tracking-tight font-semibold transition">
                   {post.title}
                 </h3>
               </a>
