@@ -23,7 +23,7 @@ export default async function ProjectDetailsPage({params,}: {  params: Promise<{
           {project.title}
         </h1>
         
-        <div className="mt-8 relative aspect-video w-full rounded-lg shadow-lg border overflow-hidden">
+        <div className="mt-8 relative aspect-[3/2] w-full rounded-lg shadow-lg border overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
