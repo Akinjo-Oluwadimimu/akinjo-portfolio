@@ -1,6 +1,5 @@
 import { collection, getDocs, getDoc, doc, addDoc, updateDoc, deleteDoc, query, where } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
-import { getPlaiceholder } from "plaiceholder";
 
 export type Project = {
   id?: string;
@@ -42,33 +41,15 @@ export const getProjectById = async (id: string): Promise<Project | null> => {
   return { id: projectDoc.id, ...projectDoc.data() } as Project;
 }
 
-async function generateBlur(imageUrl: string) {
-  const buffer = await fetch(imageUrl).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
-  );
-  const { base64 } = await getPlaiceholder(buffer);
-  return base64;
-}
-
 export const addProject = async (project: Omit<Project, 'id'>) => {
-  const blurDataURL = await generateBlur(project.image);
-  return await addDoc(projectsCollection, {
-    ...project,
-    blurDataURL,
-  });
+  return await addDoc(projectsCollection, project);
 };
 
 export const updateProject = async (id: string, project: Partial<Project>) => {
   const projectRef = doc(db, 'projects', id);
-  let updated = { ...project };
-
-  if (project.image) {
-    // re-generate blur if image changes
-    updated.blurDataURL = await generateBlur(project.image);
-  }
-
-  return await updateDoc(projectRef, updated);
+  return await updateDoc(projectRef, project);
 };
+
 
 export const deleteProject = async (id: string) => {
   const projectRef = doc(db, 'projects', id);
