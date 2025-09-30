@@ -111,32 +111,32 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       className={clsx(
-        "group h-screen flex flex-col justify-end relative px-6 xl:px-12 overflow-hidden",
+        "group relative z-10 h-screen flex flex-col justify-end px-6 xl:px-12 overflow-hidden bg-black",
         {
           "mb-1": index !== total - 1,
         }
       )}
     >
-      {/* Background/Image with zoom effect */}
-      <div className="absolute inset-0">
-        <div className="relative w-full h-full aspect-[16/9]"> 
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <div className="relative h-full w-full">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            priority={index < 2} // preload first 2 for smoother sticky effect
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
+            sizes="100vw"
+            priority={index === 0}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             placeholder={project.blurDataURL ? "blur" : "empty"}
             blurDataURL={project.blurDataURL}
           />
-
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </div>
       </div>
 
-      {/* Top-right icon */}
+      {/* Dark overlay on hover */}
+      <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"></div>
+
+      {/* Hover Arrow */}
       <div className="absolute top-10 right-10 lg:right-16 z-20 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <div className="w-10 h-10 lg:w-12 lg:h-12 bg-primary flex items-center justify-center">
           <svg
