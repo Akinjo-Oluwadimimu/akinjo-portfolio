@@ -15,7 +15,11 @@ export default async function LatestProjects() {
       <div className="lg:hidden pt-20 pb-10">
         {/* Left Column (sticky full height for all screen sizes) */}
         <div
-            className="sticky top-0 pt-20 pb-20 flex flex-col justify-center px-6 md:px-12 xl:px-20 bg-color-dark-200 z-10"
+            className="sticky top-0 pt-20 pb-20 flex flex-col justify-center px-6 md:px-12 xl:px-20 bg-color-dark-200 z-10 transform-gpu"
+            style={{ 
+              willChange: 'position',
+              transform: 'translateZ(0)'
+            }}
         >
             <div className="flex items-center space-x-2 mb-6">
               <div className="w-1.5 h-1.5 bg-primary"></div>
@@ -59,6 +63,10 @@ export default async function LatestProjects() {
         {/* Left Column */}
         <div
             className="sticky top-0 h-screen flex flex-col justify-center px-7 xl:px-14 bg-color-dark-200 z-10"
+            style={{ 
+              willChange: 'transform',
+              backfaceVisibility: 'hidden'
+            }}
         >
             <div className="flex items-center space-x-2 mb-6">
               <div className="w-1.5 h-1.5 bg-primary"></div>
@@ -111,32 +119,32 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       className={clsx(
-        "group relative z-10 h-screen flex flex-col justify-end px-6 xl:px-12 overflow-hidden bg-black",
+        "group h-screen flex flex-col justify-end relative px-6 xl:px-12 overflow-hidden",
         {
           "mb-1": index !== total - 1,
         }
       )}
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <div className="relative h-full w-full">
+      {/* Background/Image with zoom effect */}
+      <div className="absolute inset-0">
+        <div className="relative w-full h-full">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            sizes="100vw"
-            priority={index === 0}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             placeholder={project.blurDataURL ? "blur" : "empty"}
             blurDataURL={project.blurDataURL}
+            priority={index === 0}
           />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </div>
       </div>
 
-      {/* Dark overlay on hover */}
-      <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"></div>
-
-      {/* Hover Arrow */}
+      {/* Top-right icon */}
       <div className="absolute top-10 right-10 lg:right-16 z-20 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <div className="w-10 h-10 lg:w-12 lg:h-12 bg-primary flex items-center justify-center">
           <svg
@@ -164,5 +172,4 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
     </Link>
   );
 }
-
 
