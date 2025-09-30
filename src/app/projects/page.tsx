@@ -34,38 +34,6 @@ export default async function ProjectsPage() {
                   placeholder={project.blurDataURL ? "blur" : "empty"}
                   blurDataURL={project.blurDataURL}
                 />
-              </div>
-
-              <CardHeader>
-                <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
-      </section>
-
-      <section className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <Link href={`/projects/${project.slug}`} key={project.slug} className="group">
-            <Card className="h-full max-w-full overflow-hidden transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-              
-              <div className="relative w-full aspect-[4/3] overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  placeholder={project.blurDataURL ? "blur" : "empty"}
-                  blurDataURL={project.blurDataURL}
-                />
 
                 {/* Overlay + Arrow */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
