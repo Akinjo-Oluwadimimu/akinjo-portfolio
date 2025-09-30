@@ -119,16 +119,16 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
     >
       {/* Background/Image with zoom effect */}
       <div className="absolute inset-0">
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full aspect-[16/9]"> 
           <Image
             src={project.image}
             alt={project.title}
             fill
+            priority={index < 2} // preload first 2 for smoother sticky effect
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             placeholder={project.blurDataURL ? "blur" : "empty"}
             blurDataURL={project.blurDataURL}
-            priority={index === 0}
           />
 
           {/* Overlay */}
@@ -164,4 +164,5 @@ function ProjectCard({ project, index, total }: ProjectCardProps) {
     </Link>
   );
 }
+
 
