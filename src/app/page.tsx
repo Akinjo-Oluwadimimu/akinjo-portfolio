@@ -84,14 +84,16 @@ export default async function Home() {
                   </Button>
                 </div>
               </div>
-              <Image
-                src="/hero2.jpeg"
-                width="600"
-                height="600"
-                alt="Hero"
-                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-                data-ai-hint="developer abstract"
-              />
+              <div className="relative aspect-square overflow-hidden rounded-xl sm:w-full lg:order-last">
+                <Image
+                  src="/hero1.jpg"
+                  alt="Hero"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
             </div>
           </div>
         </section>
@@ -179,7 +181,7 @@ export default async function Home() {
       </section>
 
 
-        <LatestProjects />
+      <LatestProjects />
 
         {/* Testimonials Section */}
         <section className="w-full py-24 md:py-32">
