@@ -57,7 +57,7 @@ export function Header() {
 
         <div className="flex flex-1 items-center justify-end gap-2">
           <Button asChild variant="outline" className="hidden lg:flex" size="sm">
-            <Link href="/ai-hub/chatbot">
+            <Link href="/didibot">
               <Bot className="mr-2 h-4 w-4" />
               DidiBot
             </Link>
