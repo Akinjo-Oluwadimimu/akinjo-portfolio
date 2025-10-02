@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // --- Blog posts from Firebase ---
-  const blogSnapshot = await adminDb.collection("blogs").get();
+  const blogSnapshot = await adminDb.collection("blog").get();
   const blogs: MetadataRoute.Sitemap = blogSnapshot.docs.map(doc => ({
     url: `${baseUrl}/blog/${doc.data().slug}`,
     lastModified: doc.data().updatedAt?.toDate() || new Date(),

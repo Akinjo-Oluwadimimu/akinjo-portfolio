@@ -10,8 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "backfill-blur": "node --loader ts-node/esm scripts/backfillBlur.ts",
-    "postbuild": "next-sitemap"
+    "backfill-blur": "node --loader ts-node/esm scripts/backfillBlur.ts"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.14.1",
