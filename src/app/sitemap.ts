@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next'
-import { getDocs, collection } from 'firebase/firestore'
 import { adminDb } from '@/lib/firebase.admin.sitemap' 
 
 export const dynamic = "force-dynamic"; 
@@ -16,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // --- Blog posts from Firebase ---
-  const blogSnapshot = await adminDb.collection("blog").get();
+  const blogSnapshot = await adminDb.collection("posts").get();
   const blogs: MetadataRoute.Sitemap = blogSnapshot.docs.map(doc => ({
     url: `${baseUrl}/blog/${doc.data().slug}`,
     lastModified: doc.data().updatedAt?.toDate() || new Date(),
