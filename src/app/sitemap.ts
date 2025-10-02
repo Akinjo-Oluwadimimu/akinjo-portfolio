@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getDocs, collection } from 'firebase/firestore'
-import { db } from '@/lib/firebase' 
+import { db } from '@/lib/firebase.admin' 
 
 export const dynamic = "force-dynamic"; 
 
