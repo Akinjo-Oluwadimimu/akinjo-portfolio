@@ -93,11 +93,11 @@ export function Header() {
                     </Link>
                   ))}
                    <Link
-                      href="/ai-hub/chatbot"
+                      href="/didibot"
                       onClick={() => setOpen(false)}
                       className={cn(
                         'text-lg font-medium transition-colors hover:text-primary',
-                        pathname.startsWith('/ai-hub') ? 'text-primary' : 'text-muted-foreground'
+                        pathname.startsWith('/didibot') ? 'text-primary' : 'text-muted-foreground'
                       )}
                     >
                       DidiBot
